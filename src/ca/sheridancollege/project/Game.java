@@ -1,9 +1,9 @@
 /**
- * SYST 17796 Project Winter 2019 Base code.
+ * SYST 17796 Project fall 2019 Base code.
  * @author Priya Singh
  *@ author Ravneet Kaur Ranu
  * @author Ridhima Nanda
- *Date: 15 October, 2019 
+ * Date: 12/3/2019
 */
 package ca.sheridancollege.project;
 
@@ -13,53 +13,32 @@ import java.util.ArrayList;
  * The class that models your game. You should create a more specific
  * child of this class and instantiate the methods given.
  */
-public abstract class Game 
-{
-    private final String gameName;//the title of the game we have 
-    private ArrayList <Player> players;// the players of the game
-    
-    public Game(String givenName)
-    {
-        gameName = givenName;
-        players = new ArrayList();
+public class Game{
+
+    private Player p;
+    private Dealer d;
+    private Deck deck;
+    private final double WIN_RATIO = 1.5;
+
+    public Game(Player p, Dealer d, Deck deck){
+        this.p = p;
+        this.d = d;
+        this.deck = deck;
     }
 
-    /**
-     * @return the gameName
-     */
-    public String getGameName() 
-    {
-        return gameName;
-    }
-    
-     /**
-     * @return the players of this game
-     */
-    public ArrayList <Player> getPlayers() 
-    {
-        return players;
+    public double getWIN_RATIO(){
+        return WIN_RATIO;
     }
 
-    /**
-     * @param players the players of this game
-     */
-    public void setPlayers(ArrayList <Player> players) 
-    {
-        this.players = players;
+    public Player getP(){
+        return p;
     }
-    
-    /**
-     * Play the game. This might be one method or many method calls depending
-     * on your game.
-     */
-    public abstract void play();
-    
-    /**
-     * When the game is over, use this method to declare and display a winning
-     * player.
-     */
-    public abstract void declareWinner();
 
-   
-    
-}//end class
+    public Dealer getD(){
+        return d;
+    }
+
+    public Deck getDeck(){
+        return deck;
+    }
+}

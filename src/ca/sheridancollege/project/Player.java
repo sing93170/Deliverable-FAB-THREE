@@ -1,9 +1,9 @@
 /**
- * SYST 17796 Project Winter 2019 Base code.
+ * SYST 17796 Project fall 2019 Base code.
  * @author Priya Singh
  *@ author Ravneet Kaur Ranu
  * @author Ridhima Nanda
- *Date: 15 October, 2019 
+ * Date: 12/3/2019
 */
 package ca.sheridancollege.project;
 
@@ -11,40 +11,33 @@ package ca.sheridancollege.project;
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  * @author dancye, 2018
  */
-public abstract class Player 
-{
+public class Player extends User{
+
     private String playerID; //the unique ID for this player
-    
-    /**
-     * A constructor that allows you to set the player's unique ID
-     * @param name the unique ID to assign to this player.
-     */
-    public Player(String name)
-    {
-        playerID= name;
-    }
-    
-    /**
-     * @return the playerID
-     */
-    public String getPlayerID() 
-    {
-        return playerID;
+    private Balance balance;
+
+    public Player(String name){
+        playerID = name;
+        balance = new Balance();
     }
 
-    /**
-     * Ensure that the playerID is unique
-     * @param givenID the playerID to set
-     */
-    public void setPlayerID(String givenID) 
-    {
-        playerID = givenID;
+    public Balance getBalance(){
+        return balance;
+    }
+
+    public String getPlayerID(){
+        return playerID;
+    }
+    
+    public void setBalance(Balance balance){
+        this.balance = balance;
     }
     
     /**
-     * The method to be instantiated when you subclass the Player class
-     * with your specific type of Player and filled in with logic to play your game.
-     */
-    public abstract void play();
-    
+     * Returns a String that has the totalBalance of the Player
+     * @return String 
+    */
+    public String printBalance(){
+        return "Balance Total: $" + balance.getTotalBalance();
+    }
 }
